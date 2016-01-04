@@ -26,9 +26,9 @@ public class CollisionID : MonoBehaviour {
 			/*if(serial.IsOpen==false){
 				serial.Open();
 			}
-			Debug.Log(ledState);
+			Debug.Log(ledS;;tate);
 			ledState = !ledState;
-			if(ledState){
+			if(ledState){*
 				serial.Write("A");
 			}
 			else{
@@ -40,18 +40,22 @@ public class CollisionID : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) 
 	{
 		FingerModel finger = collision.gameObject.GetComponentInParent<FingerModel>();
+		string name;
+		name = collision.gameObject.name;
 
 
 		if(finger){
 			HandModel hand = finger.GetComponentInParent<HandModel> ();
+			Finger leapfinger = finger.GetLeapFinger();
 			
-			bool leftHand = hand.GetLeapHand ().IsLeft;
-			Debug.Log ("Finger collision " + finger.fingerType);
-			if (leftHand) {
+			//bool leftHand = hand.GetLeapHand ().IsLeft;
+			Debug.Log ("Finger collision " + finger.fingerType + " " + name);
+
+			/*if (leftHand) {
 				Debug.Log ("Main Gauche");
 			} else {
 				Debug.Log ("Main droite");
-			}
+			}*/
 
 			/*if(serial.IsOpen==false){
 				serial.Open();
